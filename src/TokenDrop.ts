@@ -5,7 +5,7 @@ export class TokenDrop extends SmartContract {
   @state(Field) minStars = State<Field>();
 
   events = {
-    contributed: Field
+    contributionVerified: Field
   };
 
   init() {
@@ -23,7 +23,7 @@ export class TokenDrop extends SmartContract {
     result.assertTrue("The signature was invalid");
     const minContributions = this.minStars.getAndRequireEquals();
     stars.assertGreaterThanOrEqual(minContributions, 'Stars too low');
-    this.emitEvent("contributed", id);
+    this.emitEvent("contributionVerified", id);
   }
 
 

@@ -1,14 +1,22 @@
 {
   "version": 1,
   "deployAliases": {
-    "lightnet-tokendrop": {
+    "lightnet1": {
       "networkId": "testnet",
       "url": "http://127.0.0.1:8080/graphql",
-      "keyPath": "keys/lightnet2.json",
-      "feepayerKeyPath": "/Users/essentialbreads/.cache/zkapp-cli/keys/lightnet2.json",
-      "feepayerAlias": "lightnet2",
+      "keyPath": "keys/lightnet1.json",
+      "feepayerKeyPath": "/Users/essentialbreads/.cache/zkapp-cli/keys/lightnet1.json",
+      "feepayerAlias": "lightnet1",
       "fee": "0.01",
       "smartContract": "TokenDrop"
+    },
+    "devnet": {
+      "networkId": "testnet",
+      "url": "https://api.minascan.io/node/devnet/v1/graphql",
+      "keyPath": "keys/devnet.json",
+      "feepayerKeyPath": "/Users/essentialbreads/.cache/zkapp-cli/keys/devnet-account.json",
+      "feepayerAlias": "devnet-account",
+      "fee": "0.1"
     }
   }
 }
