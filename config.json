@@ -1,4 +1,13 @@
 {
   "version": 1,
-  "deployAliases": {}
+  "deployAliases": {
+    "lightnet-tokendrop": {
+      "networkId": "testnet",
+      "url": "http://127.0.0.1:8080/graphql",
+      "keyPath": "keys/lightnet2.json",
+      "feepayerKeyPath": "/Users/essentialbreads/.cache/zkapp-cli/keys/lightnet2.json",
+      "feepayerAlias": "lightnet2",
+      "fee": "0.01"
+    }
+  }
 }
