@@ -36,15 +36,17 @@ describe('TokenDrop', () => {
   it('Initialized `TokenDrop` with the correct key', async () => {
     const oracleKey = zkApp.oracleKey.get();
     expect(oracleKey).toEqual(PublicKey.fromBase58('B62qphyUJg3TjMKi74T2rF8Yer5rQjBr1UyEG7Wg9XEYAHjaSiSqFv1'));
+    const minStars = zkApp.minStars.get();
+    expect(minStars).toEqual(Field(1));
   });
   describe('TokenDrop with hardcoded values', () => {
     it('`TokenDrop` verifies the api response', async () => {
-      const contributions = 67;
+      const stars = 1;
       const username = "katien";
       const fieldEncodedUsername = Field(stringToBigInt(username));
-      const signature = Signature.fromBase58('7mXBiworTwfx5fYu5nFrgQGxZworLmh8oictQGXw8SDR1z3CEJJbiBitfFrADazUj7AYr5GMTT2b8Vdq6gpwCTNJ2uhB4MUx');
+      const signature = Signature.fromBase58("7mXQqm4vgghAodYti1fDHNckDH9dv4pZWbAbzE9i7huBoWXR6pXig3YfUweiNQGH4JczJVo6RB6N3tVF3iADtfiKzNyRMDv6");
       const txn = await Mina.transaction(senderAccount, async () => {
-        await zkApp.verifyContribution(Field(stringToBigInt(username)),Field(contributions), signature);
+        await zkApp.verifyContribution(fieldEncodedUsername,Field(stars), signature);
       });
 
       await txn.prove();
